@@ -1,0 +1,1 @@
+console.log("UI layer only — game logic lives in src/");
