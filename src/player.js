@@ -17,7 +17,6 @@ function Player(name) {
     return enemyBoard.receiveAttack(x, y);
   }
 
-  
   return {
     name,
     board,

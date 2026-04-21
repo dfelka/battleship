@@ -24,3 +24,15 @@ body {
   background-color: lightblue;
   border: 1px solid white;
 }
+
+.square.miss {
+  background-color: #f0f0f0; /* Light gray for misses */
+}
+
+.square.hit {
+  background-color: #ff4d4d; /* Red for hits */
+}
+
+.square.ship {
+  background-color: #4dff88; /* Green to see your own ships */
+}

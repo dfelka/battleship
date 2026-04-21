@@ -13,18 +13,18 @@ function Gameboard() {
   }
 
   return {
-    placeShip(Ship, x, y, orientation) {
+    placeShip(shipInstance, x, y, orientation) {
       if (orientation === 'vertical') {
-        for (let i = 0; i < Ship.getLength(); i++) {
-          grid[y + i][x] = Ship;
+        for (let i = 0; i < shipInstance.getLength(); i++) {
+          grid[y + i][x] = shipInstance;
         }
       }
       else if (orientation === 'horizontal') {
-        for (let i = 0; i < Ship.getLength(); i++) {
-          grid[y][x + i] = Ship;
+        for (let i = 0; i < shipInstance.getLength(); i++) {
+          grid[y][x + i] = shipInstance;
         }
       }
-      placedShips.push(Ship);
+      placedShips.push(shipInstance);
     },
     receiveAttack(x, y) {
       const target = grid[y][x];
