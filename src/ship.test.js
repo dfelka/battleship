@@ -13,3 +13,4 @@ test('ship sinks after enough hits', () => {
 
   expect(ship.isSunk()).toBe(true);
 });
+

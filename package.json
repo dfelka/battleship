@@ -2,9 +2,14 @@
   "name": "battleship",
   "version": "1.0.0",
   "scripts": {
-    "test": "jest --watch"
+    "test": "jest",
+    "start": "webpack serve",
+    "build": "webpack"
   },
   "devDependencies": {
-    "jest": "^29.0.0"
+    "jest": "^29.0.0",
+    "webpack": "^5.106.2",
+    "webpack-cli": "^7.0.2",
+    "webpack-dev-server": "^5.2.3"
   }
 }
