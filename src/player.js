@@ -12,7 +12,7 @@ function Player(name) {
       success = enemyBoard.receiveAttack(x, y);
     }
   }
-
+  
   function attack(enemyBoard, x, y) {
     return enemyBoard.receiveAttack(x, y);
   }

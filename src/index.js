@@ -4,32 +4,53 @@ const Ship = require("./ship");
 const user = Player("Human");
 const computer = Player("AI");
 
-const myCarrier = Ship(5)
-user.board.placeShip(myCarrier, 0, 3, 'horizontal'); 
+let isGameOver = false;
+let canPlayerMove = true;
+
+// const myCarrier = Ship(5)
+// user.board.placeShip(myCarrier, 0, 3, 'horizontal');
+
+const myDestroyer = Ship(2)
+user.board.placeShip(myDestroyer, 0, 8, 'vertical');
+const myBoatz = Ship(4)
+user.board.placeShip(myBoatz, 0, 4, 'vertical')
+// console.log(user.board.grid())
 
 const computerCarrier = Ship(5)
-computer.board.placeShip(computerCarrier, 5, 3, 'vertical');
+computer.board.placeShip(computerCarrier, 5, 3, 'horizontal');
 
 const playerBoardUI = document.getElementById('player-board');
 const computerBoardUI = document.getElementById('computer-board');
 
 function handleAttack(x, y) {
+    // If the game is over or it's the AI's turn, do nothing
+    if (isGameOver || !canPlayerMove) return;
+
     const hit = user.attack(computer.board, x, y);
     
+    // If the player clicked a square they already hit, don't let the AI move
+    if (!hit) return; 
+
     renderBoard(computer, computerBoardUI, true);
 
     if (computer.board.allSunk()) {
+        isGameOver = true;
         alert("You win!");
         return;
     }
+
+    canPlayerMove = false; // "Close the gate"
 
     setTimeout(() => {
         computer.computerMove(user.board);
         renderBoard(user, playerBoardUI, false);
 
         if (user.board.allSunk()) {
+            isGameOver = true;
             alert("AI wins!");
         }
+        
+        canPlayerMove = true; // "Open the gate" for the next turn
     }, 500);
 }
 
@@ -51,8 +72,8 @@ function renderBoard(boardInstance, containerElement, isEnemy) {
                 square.classList.add('ship');
             }
 
-            if (isEnemy) {                
-                square.addEventListener('click', () => handleAttack(x, y), { once: true });
+            if (isEnemy) {
+                square.addEventListener('click', () => handleAttack(x, y));
             }
 
             containerElement.appendChild(square);
