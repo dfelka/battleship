@@ -7,17 +7,10 @@ const computer = Player("AI");
 let isGameOver = false;
 let canPlayerMove = true;
 
-// const myCarrier = Ship(5)
-// user.board.placeShip(myCarrier, 0, 3, 'horizontal');
+user.placeFleet();
+computer.placeFleet();
 
-const myDestroyer = Ship(2)
-user.board.placeShip(myDestroyer, 0, 8, 'vertical');
-const myBoatz = Ship(4)
-user.board.placeShip(myBoatz, 0, 4, 'vertical')
-// console.log(user.board.grid())
-
-const computerCarrier = Ship(5)
-computer.board.placeShip(computerCarrier, 5, 3, 'horizontal');
+// console.log(computer.board.placedShips().length)
 
 const playerBoardUI = document.getElementById('player-board');
 const computerBoardUI = document.getElementById('computer-board');

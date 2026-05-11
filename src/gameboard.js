@@ -80,6 +80,9 @@ function Gameboard() {
         }
       }
       return true;
+    },
+    placedShips() {
+      return placedShips;
     }
   };
 }
