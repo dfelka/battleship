@@ -3,7 +3,7 @@ const Player = require("./player");
 const menu = document.getElementById('menu')
 
 const message = document.createElement('h2');
-message.textContent = 'Press start to play or random to change ship placement';
+message.textContent = 'Press play to start or random to change ship placement';
 menu.appendChild(message);
 
 playBtn = document.createElement('button');
